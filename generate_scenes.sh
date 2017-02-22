@@ -37,11 +37,11 @@ fi
 echo "Copy and paste this list of scene names into Alexa's custom slot type if you need to:"
 for scene in $(ls "$SCENES_DIR" | grep -E .*\.yaml)
 do
-  if [ "$scene" == "scenes.yaml" ]; then
+  if [ "$SCENES_DIR/$scene" == "scenes.yaml" ]; then
     continue
   fi
 
   output=$(echo "$scene" | sed -r 's/(.*)\.yaml/\1/')
   echo "$output"
-  cat "$scene" | sed -e 's/- name:.*/- name: '$output'/' >> scenes.yaml
+  cat "$SCENES_DIR/$scene" | sed -e 's/- name:.*/- name: '$output'/' >> "$SCENES_DIR"/scenes.yaml
 done
