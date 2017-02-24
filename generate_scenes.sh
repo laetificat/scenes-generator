@@ -31,7 +31,7 @@
 SCENES_DIR=/home/homeassistant/.homeassistant/scenes
 
 if [ -f "$SCENES_DIR"/scenes.yaml ]; then
-  rm -f scenes.yaml
+  rm -f "$SCENES_DIR"/scenes.yaml
 fi
 
 echo "Copy and paste this list of scene names into Alexa's custom slot type if you need to:"
